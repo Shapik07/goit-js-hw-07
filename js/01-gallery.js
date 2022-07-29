@@ -28,9 +28,18 @@ function createImagesMarkup(galleryItems) {
 }
 
 function onGalleryImageClick(event) {
-  const isImageInGalleryElement = event.target.classList.contains("image");
+  const isImageInGalleryElement = event.target.nodName("IMG");
 
+  event.preventDefault();
   if (!isImageInGalleryElement) {
     return;
   }
+
+  const modalWindow = basicLightbox.create(
+    `<img
+    src=${event.target.dataset.source}
+    alt=${event.target.alt}
+    />`
+  );
+  modalWindow.show();
 }
