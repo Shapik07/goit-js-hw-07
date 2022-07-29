@@ -28,9 +28,10 @@ function createImagesMarkup(galleryItems) {
 }
 
 function onGalleryImageClick(event) {
-  const isImageInGalleryElement = event.target.nodName("IMG");
-
   event.preventDefault();
+
+  const isImageInGalleryElement = event.target.nodeName === "IMG";
+
   if (!isImageInGalleryElement) {
     return;
   }
