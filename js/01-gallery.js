@@ -37,7 +37,7 @@ function onGalleryImageClick(event) {
     return;
   }
 
-  const modalWindow = basicLightbox.create(
+  modalWindow = basicLightbox.create(
     `<img
     src=${event.target.dataset.source}
     alt=${event.target.alt}
@@ -45,18 +45,18 @@ function onGalleryImageClick(event) {
   );
   modalWindow.show();
 
-  document.body.addEventListener("keydown", onClose);
+  document.body.addEventListener("keydown", closeOpenedModalWindow);
 }
 
-function onShow() {
-document.body.removeEventListener("keydown", onClose);
+function openModalWindow() {
+document.body.removeEventListener("keydown", closeOpenedModalWindow);
 }
 
-function onClose(event) {
-
-  if (event.code !== 'Escape') {
-    return 
+function closeOpenedModalWindow(event) {
+  if (event.code !== "Escape") {
+    return;
   }
 
-modalWindow.close(onShow);
+  modalWindow.close();
+  openModalWindow();
 }
