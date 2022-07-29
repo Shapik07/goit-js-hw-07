@@ -24,4 +24,5 @@ function onGalleryImageClick(event) {
     if (!isImageInGalleryElement) {
         return
   };
+  console.log('Привет, это картинка')
 }
