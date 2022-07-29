@@ -13,16 +13,24 @@ gallery.addEventListener("click", onGalleryImageClick);
 function createImagesMarkup(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
-      return `<img loading="lazy" class="image" src="${preview}" alt="${description}" width="360" height="230"></img>`;
+      return `<div class="gallery__item">
+  <a class="gallery__link" href="${preview}">
+    <img
+      class="gallery__image"
+      src="${original}"
+      data-source="large-image.jpg"
+      alt="${description}"
+    />
+  </a>
+</div>`;
     })
     .join("");
-  
 }
 
 function onGalleryImageClick(event) {
-    const isImageInGalleryElement = event.target.classList.contains("image");
-    if (!isImageInGalleryElement) {
-        return
-  };
-  console.log('Привет, это картинка')
+  const isImageInGalleryElement = event.target.classList.contains("image");
+  if (!isImageInGalleryElement) {
+    return;
+  }
+  console.log("Привет, это картинка");
 }
