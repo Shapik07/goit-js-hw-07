@@ -14,11 +14,11 @@ function createImagesMarkup(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
       return `<div class="gallery__item">
-  <a class="gallery__link" href="${preview}">
+  <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
-      src="${original}"
-      data-source="large-image.jpg"
+      src="${preview}"
+      data-source="${original}"
       alt="${description}"
     />
   </a>
@@ -29,8 +29,8 @@ function createImagesMarkup(galleryItems) {
 
 function onGalleryImageClick(event) {
   const isImageInGalleryElement = event.target.classList.contains("image");
+
   if (!isImageInGalleryElement) {
     return;
   }
-  console.log("Привет, это картинка");
 }
