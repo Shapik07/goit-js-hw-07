@@ -5,6 +5,7 @@ import { galleryItems } from "./gallery-items.js";
 
 const gallery = document.querySelector(".gallery");
 const cardsMarkup = createImagesMarkup(galleryItems);
+let modalWindow = null;
 
 gallery.insertAdjacentHTML("beforeend", cardsMarkup);
 
@@ -43,4 +44,19 @@ function onGalleryImageClick(event) {
     />`
   );
   modalWindow.show();
+
+  document.body.addEventListener("keydown", onClose);
+}
+
+function onShow() {
+document.body.removeEventListener("keydown", onClose);
+}
+
+function onClose(event) {
+
+  if (event.code !== 'Escape') {
+    return 
+  }
+
+modalWindow.close(onShow);
 }
