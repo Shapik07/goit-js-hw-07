@@ -6,6 +6,10 @@ const markupGallery = createImagesMarkup(galleryItems);
 
 gallery.insertAdjacentHTML("beforeend", markupGallery);
 
+var lightbox = new SimpleLightbox(".gallery a", {
+  captionDelay: 250,
+});
+
 function createImagesMarkup() {
   return galleryItems
     .map(({ preview: smallPicture, original: bigPicture, description }) => {
