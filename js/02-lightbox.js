@@ -8,6 +8,7 @@ gallery.insertAdjacentHTML("beforeend", markupGallery);
 
 var lightbox = new SimpleLightbox(".gallery a", {
   captionDelay: 250,
+  captionsData: 'alt'
 });
 
 function createImagesMarkup() {
